@@ -1,4 +1,5 @@
 from flask import Flask, jsonify
+from flask_cors import CORS  # <-- Nayi Library
 import requests
 import re
 import urllib3
@@ -6,6 +7,7 @@ import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 app = Flask(__name__)
+CORS(app)  # <-- Yeh line sabhi websites ko data access karne ki permission degi
 
 @app.route('/', methods=['GET'])
 def home():
